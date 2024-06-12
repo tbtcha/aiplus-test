@@ -1,0 +1,65 @@
+definitions:
+  domain.StaffRequest:
+    properties:
+      cityName:
+        example: Almaty
+        type: string
+      firstname:
+        example: Azamat
+        type: string
+      lastname:
+        example: Azamatov
+        type: string
+      middlename:
+        example: Azamatuly
+        type: string
+      phoneNumber:
+        example: 8(777)777-77-77
+        type: string
+    type: object
+  domain.StaffResponse:
+    properties:
+      cityName:
+        example: Almaty
+        type: string
+      firstname:
+        example: Azamat
+        type: string
+      id:
+        example: bbb7b76f-7bb5-11ee-9ef7-9828a62c67e0
+        type: string
+      lastname:
+        example: Azamatov
+        type: string
+      middlename:
+        example: Azamatuly
+        type: string
+      phoneNumber:
+        example: 8(777)777-77-77
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /staff:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: RequestBody
+        required: true
+        schema:
+          $ref: '#/definitions/domain.StaffRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Created
+          schema:
+            $ref: '#/definitions/domain.StaffResponse'
+      summary: createStaff
+      tags:
+      - staff
+swagger: "2.0"
